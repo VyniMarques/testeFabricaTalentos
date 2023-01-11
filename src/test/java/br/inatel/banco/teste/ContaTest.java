@@ -11,31 +11,28 @@ public class ContaTest {
     ContaPoupancaService ContaPoupanca;
     ContaCorrenteService ContaCorrente;
 
-    @Before
-    public void setup(){
-        ContaCorrente = new ContaCorrenteService("1111", "1234567-9");
-        ContaPoupanca = new ContaPoupancaService("2222", "9876543-1");
-    }
+//    @Before
+//    public void setup(){
+//        ContaCorrente = new ContaCorrenteService("1111", "1234567-9");
+//        ContaPoupanca = new ContaPoupancaService("2222", "9876543-1");
+//    }
 
     @Test
     public void ContaCorrentePagarCreditoTest_Ok (){
-        // ContaPoupancaService ContaPoupanca = new ContaPoupancaService("2222", "9876543-1");
-        // ContaCorrenteService ContaCorrente = new ContaCorrenteService("1111", "1234567-9");
+        ContaCorrenteService ContaCorrente = new ContaCorrenteService("1111", "1234567-9");
         boolean verifica = ContaCorrente.pagarCredito(10);
         assertEquals(true, verifica);
     }
 
     @Test
     public void contaCorrentePagarCreditoTest_Error(){
-        // ContaPoupancaService ContaPoupanca = new ContaPoupancaService("2222", "9876543-1");
-        // ContaCorrenteService ContaCorrente = new ContaCorrenteService("1111", "1234567-9");
+        ContaCorrenteService ContaCorrente = new ContaCorrenteService("1111", "1234567-9");
         assertEquals(false, ContaCorrente.pagarCredito(-10));
     }
 
     @Test
     public void contaPoupancaAdicionaRendimentoTest_Ok(){
-        // ContaPoupancaService ContaPoupanca = new ContaPoupancaService("2222", "9876543-1");
-        // ContaCorrenteService ContaCorrente = new ContaCorrenteService("1111", "1234567-9");
+        ContaPoupancaService ContaPoupanca = new ContaPoupancaService("2222", "9876543-1");
         ContaPoupanca.depositoConta(5600, "teste");
         ContaPoupanca.adicionaRendimento();
         assertEquals(56.0, ContaPoupanca.consultaRendimento(), 0);
