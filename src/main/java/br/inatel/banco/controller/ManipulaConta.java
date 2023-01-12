@@ -50,7 +50,8 @@ public class ManipulaConta {
             System.out.println("Conta:");
             System.out.println(" (1) -> Depositar dinheiro em conta");
             System.out.println(" (2) -> Pagar conta");
-            System.out.println(" (3) -> Sair");
+            System.out.println(" (3) -> Consultar  extrato");
+            System.out.println(" (4) -> Sair");
 
             Scanner teclado = new Scanner(System.in);
 
@@ -80,7 +81,12 @@ public class ManipulaConta {
                     teclado.nextLine();
 
                     System.out.println("\n" + this.pagamentoConta(Conta, valorPagamento, nomePagamento) + "\n");
+                    break;
                 case 3:
+                    this.consultaExtrato(Conta);
+
+                    break;
+                case 4:
                     System.out.println("Fim da operação");
                     break;
                 default:
@@ -110,5 +116,11 @@ public class ManipulaConta {
 
         return "Pagamento realizado com sucesso";
     }
+
+    public boolean consultaExtrato(ContaBaseService Conta){
+        return Conta.consultaExtrato();
+    }
+
+
 
 }

@@ -8,6 +8,6 @@ public interface IContaService {
 
     public double consultaSaldo();
 
-    public void consultaExtrato();
+    public boolean consultaExtrato();
 
 }

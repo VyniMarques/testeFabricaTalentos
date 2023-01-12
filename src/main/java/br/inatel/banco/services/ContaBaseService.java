@@ -46,7 +46,7 @@ public abstract class ContaBaseService  implements IContaService {
     }
 
     @Override
-    public void consultaExtrato() {
+    public boolean consultaExtrato() {
         for(Pagamentos Pagamento: this.extrato){
             System.out.println("Nome: " + Pagamento.getNome());
             System.out.println("Valor: " + Pagamento.getValor());
@@ -54,7 +54,12 @@ public abstract class ContaBaseService  implements IContaService {
             System.out.println("------------------------------");
         }
 
+        if(extrato.isEmpty()) {
+            System.out.println("Extrato vazio");
+            return false;
+        }
         System.out.println("Saldo total: " +this.saldo);
+        return true;
     }
 
     public String getAgencia() {
